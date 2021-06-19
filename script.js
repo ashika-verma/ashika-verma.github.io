@@ -22,6 +22,7 @@ const numProfilePics = 9;
 function populateMenu() {
   menuHtml = `
     <a href="./index.html">home</a>
+    <a href="./projects.html">projects</a>
     <a href="./classes.html">classes</a>
     <a target="_blank" href="./files/Ashika.Verma.6.2021.pdf">resume</a>
     <a target="_blank" href="https://github.com/ashika-verma">github</a>
