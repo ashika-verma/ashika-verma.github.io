@@ -2,6 +2,7 @@ let colors = ["#24d05a", "#eb4888", "#10a2f5", "#e9bc3f"];
 const numProfilePics = 9;
 
 (function () {
+  setMode();
   setModeEventListener();
   setRandomLinkColor();
   setColorHoverListener();
@@ -17,11 +18,26 @@ const numProfilePics = 9;
   }, 5000);
 })();
 
+function setMode() {
+  const theme = localStorage.getItem("theme");
+  let list = document.body.classList;
+  if (theme === "dark-mode") {
+    document.getElementById("toggler").checked = true;
+    list.add("dark-mode");
+  }
+}
+
 /* Dark Mode */
 function setModeEventListener() {
   let list = document.body.classList;
   document.getElementById("toggler").addEventListener("change", (event) => {
-    event.target.checked ? list.add("dark-mode") : list.remove("dark-mode");
+    if (event.target.checked) {
+      list.add("dark-mode");
+      localStorage.setItem("theme", "dark-mode");
+    } else {
+      localStorage.setItem("theme", "light-mode");
+      list.remove("dark-mode");
+    }
   });
 }
 
