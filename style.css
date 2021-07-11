@@ -93,7 +93,7 @@ body.dark-mode .biotoggler {
 }
 
 .dark-mode-toggler {
-  position: fixed;
+  position: absolute;
   top: 5px;
   right: 20px;
 }
