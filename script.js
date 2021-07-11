@@ -1,10 +1,28 @@
 const style = getComputedStyle(document.body);
-
 var colors = [
   style.getPropertyValue("--third-color"),
   style.getPropertyValue("--fourth-color"),
   style.getPropertyValue("--fifth-color"),
   style.getPropertyValue("--highlight-color"),
+];
+
+const defaultTheme = [
+  "#000",
+  "#96979c",
+  "#fff",
+  "#eb4888",
+  "#e9bc3f",
+  "#24d05a",
+  "#10a2f5",
+];
+const academiaTheme = [
+  "#3d405b",
+  "#96979c",
+  "#fff",
+  "#f2cc8f",
+  "#81b29a",
+  "#3d405b",
+  "#e07a5f",
 ];
 
 const numProfilePics = 9;
@@ -112,4 +130,34 @@ function off(bioType) {
   Array.from(document.getElementsByClassName("bio")).forEach((e) => {
     e.classList.remove("show");
   });
+}
+
+function setTheme(
+  headerColor,
+  subHeaderColor,
+  backgroundColor,
+  highlightColor,
+  funColor1,
+  funColor2,
+  funColor3
+) {
+  document.documentElement.style.setProperty("--header-color", headerColor);
+  document.documentElement.style.setProperty(
+    "--subheader-color",
+    subHeaderColor
+  );
+  document.documentElement.style.setProperty(
+    "--background-color",
+    backgroundColor
+  );
+  document.documentElement.style.setProperty(
+    "--highlight-color",
+    highlightColor
+  );
+  document.documentElement.style.setProperty("--third-color", funColor1);
+  document.documentElement.style.setProperty("--fourth-color", funColor2);
+  document.documentElement.style.setProperty("--fifth-color", funColor3);
+
+  colors = [highlightColor, funColor1, funColor2, funColor3];
+  setRandomLinkColor();
 }
