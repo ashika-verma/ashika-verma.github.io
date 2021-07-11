@@ -1,3 +1,33 @@
+/* 
+#fff - white
+#eb4888 - pink
+#24d05a - green
+#10a2f5 - blue
+#e9bc3f - yellow
+#96979c - gray
+*/
+
+/* academia */
+/* :root {
+  --header-color: #3d405b;
+  --background-color: #fff;
+  --highlight-color: #f2cc8f;
+  --third-color: #81b29a;
+  --fourth-color: #3d405b;
+  --fifth-color: #e07a5f;
+  --subheader-color: #96979c;
+} */
+
+/* DEFAULT ORIGINAL THEME */
+:root {
+  --background-color: #fff;
+  --highlight-color: #eb4888;
+  --third-color: #e9bc3f;
+  --fourth-color: #24d05a;
+  --fifth-color: #10a2f5;
+  --subheader-color: #96979c;
+}
+
 html,
 body {
   width: 100%;
@@ -7,13 +37,13 @@ body {
 
 body,
 button {
-  background: #fff;
+  background: var(--background-color, #fff);
   color: #000;
   font-family: "Roboto Mono", monospace;
 }
 
 ::selection {
-  background-color: #eb4888;
+  background-color: var(--highlight-color, #eb4888);
   color: #000;
 }
 
@@ -23,16 +53,16 @@ body.dark-mode .go-home,
 button.dark-mode,
 button.dark-mode button {
   background: #000;
-  color: #fff;
+  color: var(--background-color, #fff);
 }
 
 button {
   width: 120px;
   height: 30px;
-  border: 2px solid #96979c;
+  border: 2px solid var(--subheader-color, #96979c);
   border-radius: 15px;
   box-sizing: border-box;
-  color: #96979c;
+  color: var(--subheader-color, #96979c);
   font-size: 1rem;
   overflow: auto;
   transition: 0.4s ease all;
@@ -89,8 +119,8 @@ button:hover {
   display: block;
   height: 26px;
   width: 60px;
-  background: #fff;
-  border: 2px solid #96979c;
+  background: var(--background-color, #fff);
+  border: 2px solid var(--subheader-color, #96979c);
   border-radius: 15px;
   position: absolute;
   top: 0px;
@@ -101,8 +131,8 @@ button:hover {
   display: block;
   height: 20px;
   width: 20px;
-  background: #96979c;
-  border: 2px solid #fff;
+  background: var(--subheader-color, #96979c);
+  border: 2px solid var(--background-color, #fff);
   border-radius: 50%;
   position: absolute;
   top: 3px;
@@ -111,28 +141,33 @@ button:hover {
 }
 .dark-mode-toggler input[type="checkbox"]:checked + label::before {
   background: #000;
-  border: 2px solid #fff;
+  border: 2px solid var(--background-color, #fff);
 }
 .dark-mode-toggler input[type="checkbox"]:checked + label::after {
   left: -28px;
   background: #000;
-  border: 2px solid #fff;
+  border: 2px solid var(--background-color, #fff);
   transition: all 0.4s ease-in;
 }
 
 h1 {
+  color: var(--header-color, #000);
   font-weight: 400;
   margin: 0;
 }
 
+.dark-mode h1 {
+  color: var(--background-color, #000);
+}
+
 h2 {
-  color: #96979c;
+  color: var(--subheader-color, #96979c);
   font-weight: 300;
   margin: 0 0 0.5em 0;
 }
 
 a {
-  color: #96979c;
+  color: var(--subheader-color, #96979c);
 }
 a:hover {
   font-weight: bold;
@@ -148,7 +183,7 @@ thead tr {
 }
 
 tbody tr:not(:last-child) {
-  border-bottom: 2px solid #96979c;
+  border-bottom: 2px solid var(--subheader-color, #96979c);
 }
 
 tr td:nth-child(1) {
@@ -191,23 +226,19 @@ tr td:nth-child(2) {
 }
 
 .newsletter-blurb span {
-  color: #eb4888;
+  color: var(--highlight-color, #eb4888);
 }
 
 .newsletter-blurb span.green {
-  color: #24d05a;
+  color: var(--fifth-color, #24d05a);
 }
 
 .newsletter-blurb span.blue {
-  color: #10a2f5;
+  color: var(--fourth-color, #10a2f5);
 }
 
 .newsletter-blurb span.yellow {
-  color: #e9bc3f;
-}
-
-.sneaky-sponsor {
-  color: #96979c;
+  color: var(--third-color, #e9bc3f);
 }
 
 @media (max-width: 600px) {
@@ -220,8 +251,8 @@ tr td:nth-child(2) {
   margin: 25px 0;
 }
 .toggler .show {
-  border-color: #eb4888;
-  color: #eb4888;
+  border-color: var(--highlight-color, #eb4888);
+  color: var(--highlight-color, #eb4888);
 }
 @media (max-width: 600px) {
   .toggler {

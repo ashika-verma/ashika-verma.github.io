@@ -1,4 +1,12 @@
-let colors = ["#24d05a", "#eb4888", "#10a2f5", "#e9bc3f"];
+const style = getComputedStyle(document.body);
+
+var colors = [
+  style.getPropertyValue("--third-color"),
+  style.getPropertyValue("--fourth-color"),
+  style.getPropertyValue("--fifth-color"),
+  style.getPropertyValue("--highlight-color"),
+];
+
 const numProfilePics = 9;
 
 (function () {
