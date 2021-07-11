@@ -80,8 +80,8 @@
       </div>
       <div class="bio-switcher">
         <div class="toggler">
-          <button id="short" class="show">Short</button>
-          <button id="long">Long</button>
+          <button id="short" class="biotoggler show">Short</button>
+          <button id="long" class="biotoggler">Long</button>
         </div>
         <div class="bio short show">
           Hi there! My name is Ashika and I'm a Computer Science student at MIT.
@@ -105,7 +105,12 @@
         <input type="checkbox" id="toggler" />
         <label for="toggler" aria-label="Toggler for Dark Mode"></label>
       </div>
+      <div class="footer">
+           <p >roll the dice <button onclick="makePaletteRequest()">🎲</button></p> 
+           <!-- <p class="last-edited">last edited 7/11/21</p> -->
+      </div>
     </div>
+    
 
     <script src="./script.js"></script>
   </body>

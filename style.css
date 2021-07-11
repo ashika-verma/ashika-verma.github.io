@@ -1,3 +1,12 @@
+/* 
+#fff - white
+#eb4888 - pink
+#24d05a - green
+#10a2f5 - blue
+#e9bc3f - yellow
+#96979c - gray
+*/
+
 /* DEFAULT ORIGINAL THEME */
 :root {
   --background-color: #fff;
@@ -6,6 +15,7 @@
   --fourth-color: #24d05a;
   --fifth-color: #10a2f5;
   --subheader-color: #96979c;
+  --header-color: #000;
 }
 
 html,
@@ -16,7 +26,7 @@ body {
 }
 
 body,
-button {
+.biotoggler {
   background: var(--background-color, #fff);
   color: #000;
   font-family: "Roboto Mono", monospace;
@@ -28,15 +38,15 @@ button {
 }
 
 body.dark-mode,
-body.dark-mode button,
+body.dark-mode .biotoggler,
 body.dark-mode .go-home,
-button.dark-mode,
-button.dark-mode button {
+.biotoggler.dark-mode,
+.biotoggler.dark-mode .biotoggler {
   background: #000;
   color: var(--background-color, #fff);
 }
 
-button {
+.biotoggler {
   width: 120px;
   height: 30px;
   border: 2px solid var(--subheader-color, #96979c);
@@ -47,7 +57,7 @@ button {
   overflow: auto;
   transition: 0.4s ease all;
 }
-button:hover {
+.biotoggler:hover {
   background: rgba(150, 151, 156, 0.1);
   cursor: pointer;
 }
@@ -56,11 +66,6 @@ button:hover {
   margin: 50px auto;
   padding: 5px;
   max-width: 650px;
-}
-@media (max-width: 600px) {
-  .container {
-    padding: 20px;
-  }
 }
 
 .header-section {
@@ -221,26 +226,12 @@ tr td:nth-child(2) {
   color: var(--third-color, #e9bc3f);
 }
 
-@media (max-width: 600px) {
-  .links {
-    text-align: center;
-  }
-}
-
 .toggler {
   margin: 25px 0;
 }
 .toggler .show {
   border-color: var(--highlight-color, #eb4888);
   color: var(--highlight-color, #eb4888);
-}
-@media (max-width: 600px) {
-  .toggler {
-    text-align: center;
-  }
-  .toggler button {
-    margin: 5px;
-  }
 }
 
 .bio {
@@ -254,4 +245,38 @@ tr td:nth-child(2) {
 }
 .bio.show {
   display: block;
+}
+.footer {
+  font-size: 10px;
+  display: flex;
+  line-height: 30px;
+  justify-content: space-between;
+  margin: 20px 20px 0 0;
+  border-top: var(--subheader-color, #96979c) solid 1px;
+}
+
+.footer button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .links,
+  h1,
+  h2 {
+    text-align: center;
+  }
+  .container {
+    padding: 20px;
+  }
+  .footer {
+    margin-right: 0px;
+  }
+  .toggler {
+    text-align: center;
+  }
+  .toggler .biotoggler {
+    margin: 5px;
+  }
 }

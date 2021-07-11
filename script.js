@@ -1,3 +1,5 @@
+const url = "http://colormind.io/api/";
+
 const style = getComputedStyle(document.body);
 var colors = [
   style.getPropertyValue("--third-color"),
@@ -7,13 +9,13 @@ var colors = [
 ];
 
 const defaultTheme = [
-  "#000",
-  "#96979c",
-  "#fff",
-  "#eb4888",
-  "#e9bc3f",
-  "#24d05a",
-  "#10a2f5",
+  "#000", // header
+  "#96979c", // subheader
+  "#fff", // background color
+  "#eb4888", // highlight color
+  "#e9bc3f", // fun color 1
+  "#24d05a", // fun color 2
+  "#10a2f5", // fun color 3
 ];
 const academiaTheme = [
   "#3d405b",
@@ -64,6 +66,8 @@ function setMode() {
     document.getElementById("toggler").checked = true;
     list.add("dark-mode");
   }
+  const palette = sessionStorage.getItem("color-palette");
+  if (palette) setFunColors(...palette.split(","));
 }
 
 /* Dark Mode */
@@ -102,13 +106,14 @@ function setColorHoverListener() {
 
 function setRandomPhoto() {
   let num = Math.floor(Math.random() * numProfilePics) + 1;
-  document.getElementById("propic").src = `./img/face${num}.jpg`;
+  if (document.getElementById("propic"))
+    document.getElementById("propic").src = `./img/face${num}.jpg`;
 }
 
 /* Bio Toggles */
 
 function setBioEventListener() {
-  Array.from(document.getElementsByTagName("button")).forEach((e) => {
+  Array.from(document.getElementsByClassName("biotoggler")).forEach((e) => {
     e.addEventListener("click", bioToggle);
   });
 }
@@ -123,7 +128,7 @@ function bioToggle(e) {
 }
 
 function off(bioType) {
-  Array.from(document.getElementsByTagName("button")).forEach((butt) => {
+  Array.from(document.getElementsByClassName(".biotoggler")).forEach((butt) => {
     butt.style.borderColor = "#96979c";
     butt.style.color = "#96979c";
   });
@@ -132,7 +137,7 @@ function off(bioType) {
   });
 }
 
-function setTheme(
+function setFullTheme(
   headerColor,
   subHeaderColor,
   backgroundColor,
@@ -141,7 +146,6 @@ function setTheme(
   funColor2,
   funColor3
 ) {
-  document.documentElement.style.setProperty("--header-color", headerColor);
   document.documentElement.style.setProperty(
     "--subheader-color",
     subHeaderColor
@@ -150,6 +154,26 @@ function setTheme(
     "--background-color",
     backgroundColor
   );
+  document.documentElement.style.setProperty("--fifth-color", funColor3);
+  setFunColors(
+    headerColor,
+    highlightColor,
+    funColor1,
+    funColor2,
+    funColor3,
+    false
+  );
+}
+
+function setFunColors(
+  headerColor,
+  highlightColor,
+  funColor1,
+  funColor2,
+  funColor3,
+  includeSubheader = true
+) {
+  document.documentElement.style.setProperty("--header-color", headerColor);
   document.documentElement.style.setProperty(
     "--highlight-color",
     highlightColor
@@ -158,6 +182,67 @@ function setTheme(
   document.documentElement.style.setProperty("--fourth-color", funColor2);
   document.documentElement.style.setProperty("--fifth-color", funColor3);
 
+  if (includeSubheader) {
+    document.documentElement.style.setProperty(
+      "--subheader-color",
+      highlightColor
+    );
+  }
+
   colors = [highlightColor, funColor1, funColor2, funColor3];
+  sessionStorage.setItem("color-palette", [
+    headerColor,
+    highlightColor,
+    funColor1,
+    funColor2,
+    funColor3,
+  ]);
   setRandomLinkColor();
+}
+
+function componentToHex(c) {
+  const hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(rgbArray) {
+  return (
+    "#" +
+    componentToHex(rgbArray[0]) +
+    componentToHex(rgbArray[1]) +
+    componentToHex(rgbArray[2])
+  );
+}
+function hexToRgb(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? [
+        parseInt(result[1], 16),
+        parseInt(result[2], 16),
+        parseInt(result[3], 16),
+      ]
+    : null;
+}
+
+function makePaletteRequest() {
+  const data = {
+    model: "default",
+  };
+  const http = new XMLHttpRequest();
+
+  http.onreadystatechange = function () {
+    if (http.readyState == 4 && http.status == 200) {
+      const palette = JSON.parse(http.responseText).result.map((x) =>
+        rgbToHex(x)
+      );
+      setFunColors(...palette);
+    }
+  };
+
+  http.open("POST", url, true);
+  http.send(JSON.stringify(data));
+}
+
+function resetPalette() {
+  setFullTheme(...defaultTheme);
 }
