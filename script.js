@@ -1,4 +1,5 @@
 const url = "http://colormind.io/api/";
+const gray = "#96979c";
 
 const style = getComputedStyle(document.body);
 var colors = [
@@ -37,6 +38,7 @@ const numProfilePics = 9;
   setColorHoverListener();
   setBioEventListener();
   setRandomPhoto();
+  requestRepoInfo();
 
   setInterval(() => {
     setRandomPhoto();
@@ -124,13 +126,26 @@ function bioToggle(e) {
   off(bioType);
   bioType.style.cssText = `border-color: ${color}; color: ${color}; font-weight: bold;`;
   let bioTypeElement = document.getElementsByClassName(bioType.id)[0];
+  e.target.classList.add("show");
   if (bioTypeElement !== undefined) bioTypeElement.classList.add("show");
 }
 
+function randomBioToggleColor() {
+  Array.from(document.getElementsByClassName("biotoggler")).forEach((e) => {
+    if (e.classList.contains("show")) {
+      let color = getRandomColor();
+      e.style.cssText = `border-color: ${color}; color: ${color}; font-weight: bold;`;
+    } else {
+      e.style.cssText = `border-color: ${gray}; color: ${gray}; font-weight: bold;`;
+    }
+  });
+}
+
 function off(bioType) {
-  Array.from(document.getElementsByClassName(".biotoggler")).forEach((butt) => {
+  Array.from(document.getElementsByClassName("biotoggler")).forEach((butt) => {
     butt.style.borderColor = "#96979c";
     butt.style.color = "#96979c";
+    butt.classList.remove("show");
   });
   Array.from(document.getElementsByClassName("bio")).forEach((e) => {
     e.classList.remove("show");
@@ -245,4 +260,42 @@ function makePaletteRequest() {
 
 function resetPalette() {
   setFullTheme(...defaultTheme);
+}
+
+function makePaletteRequest() {
+  const data = {
+    model: "default",
+  };
+  const http = new XMLHttpRequest();
+
+  http.onreadystatechange = function () {
+    if (http.readyState == 4 && http.status == 200) {
+      const palette = JSON.parse(http.responseText).result.map((x) =>
+        rgbToHex(x)
+      );
+      setFunColors(...palette);
+      randomBioToggleColor();
+    }
+  };
+
+  http.open("POST", url, true);
+  http.send(JSON.stringify(data));
+}
+
+function requestRepoInfo() {
+  const xhr = new XMLHttpRequest();
+  const url = `https://api.github.com/repos/ashika-verma/ashika-verma.github.io/branches/main`;
+  xhr.open("GET", url, true);
+  xhr.onload = function () {
+    const data = JSON.parse(this.response);
+    const dateEdited = new Date(data.commit.commit.author.date);
+
+    document.getElementById(
+      "last-edited"
+    ).textContent = `${dateEdited.getMonth()}/${dateEdited.getDate()}/${
+      dateEdited.getFullYear() - 2000
+    }`;
+  };
+
+  xhr.send();
 }

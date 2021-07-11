@@ -41,18 +41,22 @@ body.dark-mode,
 body.dark-mode .biotoggler,
 body.dark-mode .go-home,
 .biotoggler.dark-mode,
-.biotoggler.dark-mode .biotoggler {
+button.dark-mode .biotoggler {
   background: #000;
   color: var(--background-color, #fff);
+}
+
+body.dark-mode .biotoggler {
+  color: #96979c;
 }
 
 .biotoggler {
   width: 120px;
   height: 30px;
-  border: 2px solid var(--subheader-color, #96979c);
+  border: 2px solid #96979c;
   border-radius: 15px;
   box-sizing: border-box;
-  color: var(--subheader-color, #96979c);
+  color: #96979c;
   font-size: 1rem;
   overflow: auto;
   transition: 0.4s ease all;
@@ -234,6 +238,11 @@ tr td:nth-child(2) {
   color: var(--highlight-color, #eb4888);
 }
 
+.dark-mode .toggler .show {
+  border-color: var(--highlight-color, #eb4888);
+  color: var(--highlight-color, #eb4888);
+}
+
 .bio {
   display: none;
   line-height: 24px;
@@ -253,6 +262,7 @@ tr td:nth-child(2) {
   justify-content: space-between;
   margin: 20px 20px 0 0;
   border-top: var(--subheader-color, #96979c) solid 1px;
+  vertical-align: middle;
 }
 
 .footer button {
@@ -261,7 +271,7 @@ tr td:nth-child(2) {
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 675px) {
   .links,
   h1,
   h2 {
