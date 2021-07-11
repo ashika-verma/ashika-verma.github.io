@@ -289,12 +289,9 @@ function requestRepoInfo() {
   xhr.onload = function () {
     const data = JSON.parse(this.response);
     const dateEdited = new Date(data.commit.commit.author.date);
-
-    document.getElementById(
-      "last-edited"
-    ).textContent = `${dateEdited.getMonth()}/${dateEdited.getDate()}/${
-      dateEdited.getFullYear() - 2000
-    }`;
+    document.getElementById("last-edited").textContent = `${
+      dateEdited.getMonth() + 1
+    }/${dateEdited.getDate()}/${dateEdited.getFullYear() - 2000}`;
   };
 
   xhr.send();
