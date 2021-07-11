@@ -1,4 +1,3 @@
-const url = "http://colormind.io/api/";
 const gray = "#96979c";
 
 const style = getComputedStyle(document.body);
@@ -90,6 +89,10 @@ function setModeEventListener() {
 
 function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function generateRandomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
 function setRandomLinkColor() {
@@ -239,47 +242,11 @@ function hexToRgb(hex) {
     : null;
 }
 
-function makePaletteRequest() {
-  const data = {
-    model: "default",
-  };
-  const http = new XMLHttpRequest();
-
-  http.onreadystatechange = function () {
-    if (http.readyState == 4 && http.status == 200) {
-      const palette = JSON.parse(http.responseText).result.map((x) =>
-        rgbToHex(x)
-      );
-      setFunColors(...palette);
-    }
-  };
-
-  http.open("POST", url, true);
-  http.send(JSON.stringify(data));
-}
-
-function resetPalette() {
-  setFullTheme(...defaultTheme);
-}
-
-function makePaletteRequest() {
-  const data = {
-    model: "default",
-  };
-  const http = new XMLHttpRequest();
-
-  http.onreadystatechange = function () {
-    if (http.readyState == 4 && http.status == 200) {
-      const palette = JSON.parse(http.responseText).result.map((x) =>
-        rgbToHex(x)
-      );
-      setFunColors(...palette);
-      randomBioToggleColor();
-    }
-  };
-
-  http.open("POST", url, true);
-  http.send(JSON.stringify(data));
+function changeColorPalette() {
+  let filledArray = [...new Array(5)].map(() => generateRandomColor());
+  console.log("eheflwke");
+  setFunColors(...filledArray);
+  randomBioToggleColor();
 }
 
 function requestRepoInfo() {
