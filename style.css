@@ -66,6 +66,10 @@ body.dark-mode .biotoggler {
   cursor: pointer;
 }
 
+a {
+  cursor: pointer;
+}
+
 .container {
   margin: 50px auto;
   padding: 5px;

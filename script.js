@@ -263,3 +263,8 @@ function requestRepoInfo() {
 
   xhr.send();
 }
+
+const toggleIdVisibility = (id) => {
+  document.getElementById(id).style["display"] =
+    document.getElementById(id).style["display"] === "block" ? "none" : "block";
+};
