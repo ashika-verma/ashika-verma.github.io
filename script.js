@@ -1,4 +1,6 @@
 const gray = "#96979c";
+const emojiList = [`🤏`, `🍕`, `🌯`, `🥭`, `🍪`];
+var diceCount = 0;
 
 const style = getComputedStyle(document.body);
 var colors = [
@@ -242,11 +244,20 @@ function hexToRgb(hex) {
     : null;
 }
 
-function changeColorPalette() {
+function rollTheDice() {
   let filledArray = [...new Array(5)].map(() => generateRandomColor());
-  console.log("eheflwke");
   setFunColors(...filledArray);
   randomBioToggleColor();
+
+  diceCount++;
+  if (diceCount > 4) {
+    var emoji = emojiList[Math.floor(Math.random() * emojiList.length)];
+    document.body.style[
+      "cursor"
+    ] = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='25' height='30' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>${emoji}</text></svg>")
+  16 0,
+auto`;
+  }
 }
 
 function requestRepoInfo() {
