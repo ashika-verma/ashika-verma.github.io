@@ -1,0 +1,10 @@
+' Open notepad 
+Set WshShell = WScript.CreateObject("WScript.Shell")
+Dim counter
+counter = 10
+While counter > 0
+    WshShell.SendKeys "{TAB}"
+    WScript.Sleep 200 
+    WshShell.SendKeys "{ENTER}"
+    WScript.Sleep 200 
+Wend
