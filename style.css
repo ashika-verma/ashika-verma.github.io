@@ -213,27 +213,6 @@ tr td:nth-child(2) {
   padding: 0 12px 0 0;
 }
 
-.newsletter-blurb {
-  margin: 30px 0;
-  line-height: 2em;
-}
-
-.newsletter-blurb span {
-  color: var(--highlight-color, #eb4888);
-}
-
-.newsletter-blurb span.green {
-  color: var(--fifth-color, #24d05a);
-}
-
-.newsletter-blurb span.blue {
-  color: var(--fourth-color, #10a2f5);
-}
-
-.newsletter-blurb span.yellow {
-  color: var(--third-color, #e9bc3f);
-}
-
 .toggler {
   margin: 25px 0;
 }
@@ -292,5 +271,40 @@ tr td:nth-child(2) {
   }
   .toggler .biotoggler {
     margin: 5px;
+  }
+}
+
+@media (min-width: 675px) {
+  .line-1 {
+    --line-width: 235px;
+    position: relative;
+    top: 50%;
+    width: var(--line-width);
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  /* Animation */
+  .anim-typewriter {
+    animation: typewriter 1s steps(44) 1s 1 normal both,
+      blinkTextCursor 500ms steps(44) 7 normal;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--line-width);
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(140, 0, 109, 0.75);
+  }
+  to {
+    border-right-color: transparent;
   }
 }
