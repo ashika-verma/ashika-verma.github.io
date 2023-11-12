@@ -55,7 +55,7 @@ function populateMenu() {
     <a href="./index.html">home</a>
     <a href="./projects.html">projects</a>
     <a href="./classes.html">classes</a>
-    <a target="_blank" href="./files/Ashika_Verma_Resume_7_12_2023.pdf">resume</a>
+    <a target="_blank" href="./files/Ashika_Verma_Resume_11_12_2023.pdf">resume</a>
     <a target="_blank" href="https://github.com/ashika-verma">github</a>
     <a target="_blank" href="https://www.linkedin.com/in/ashika-verma/">linkedin</a>
   `;
