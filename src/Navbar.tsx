@@ -10,18 +10,18 @@ import {
 } from "./consts";
 
 const links = [
-  { to: HOME_URL, text: "Home" },
-  { to: PROJECTS_URL, text: "Projects" },
-  { to: CLASSES_URL, text: "Classes" },
-  { href: RESUME_URL, text: "Resume" },
-  { href: GITHUB_URL, text: "GitHub" },
-  { href: LINKEDIN_URL, text: "LinkedIn" },
+  { to: HOME_URL, text: "home" },
+  { to: PROJECTS_URL, text: "projects" },
+  { to: CLASSES_URL, text: "classes" },
+  { href: RESUME_URL, text: "resume" },
+  { href: GITHUB_URL, text: "github" },
+  { href: LINKEDIN_URL, text: "linkedin" },
 ];
 
 const Navbar: FC = () => {
   return (
-    <nav>
-      <ul>
+    <nav className="flex">
+      <ul className="flex gap-4">
         {links.map((link, index) => (
           <li key={index}>
             {link.to ? (

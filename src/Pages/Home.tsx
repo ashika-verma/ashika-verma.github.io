@@ -5,8 +5,8 @@ import Navbar from "../Navbar";
 const HomePage: React.FC = () => {
   return (
     <div>
-      <h2 className="bg-teal-500">Home Page</h2>
       <Navbar></Navbar>
+      <h1 className="text-3xl py-3">Home Page</h1>
     </div>
   );
 };
