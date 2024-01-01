@@ -6,7 +6,7 @@ import ProjectsPage from "./Pages/Projects";
 
 function App() {
   return (
-    <div className=" selection:text-slate-900 selection:bg-rose-600">
+    <div className="selection:text-slate-900 selection:bg-rose-600">
       <Router>
         <Routes>
           <Route path={HOME_URL} index element={<HomePage />} />

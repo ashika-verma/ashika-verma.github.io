@@ -21,9 +21,9 @@ const links = [
 const Navbar: FC = () => {
   return (
     <nav className="flex">
-      <ul className="flex gap-4">
+      <ul className="flex gap-x-3 gap-y-1 flex-wrap sm:justify-normal justify-center">
         {links.map((link, index) => (
-          <li key={index}>
+          <li className="text-xs" key={index}>
             {link.to ? (
               <Link to={link.to}>{link.text}</Link>
             ) : (
