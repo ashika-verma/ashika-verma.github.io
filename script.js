@@ -1,5 +1,5 @@
 const gray = "#96979c";
-const emojiList = [`🤏`, `🍕`, `🌯`, `🥭`, `🍪`];
+const emojiList = [`🤏`, `🍕`, `🌯`, `🥭`, `🍪`, `🌮`];
 var diceCount = 0;
 
 const style = getComputedStyle(document.body);
@@ -254,7 +254,7 @@ function rollTheDice() {
     var emoji = emojiList[Math.floor(Math.random() * emojiList.length)];
     document.body.style[
       "cursor"
-    ] = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='25' height='30' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>${emoji}</text></svg>")
+    ] = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='50' viewport='0 0 50 50' style='fill:black;font-size:24px;'><text y='50%'>${emoji}</text></svg>")
   16 0,
 auto`;
   }
