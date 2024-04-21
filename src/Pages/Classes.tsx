@@ -1,3 +1,4 @@
+import { Header } from "../components/Header";
 import { Item } from "../components/Item";
 import Page from "./Page";
 
@@ -88,9 +89,7 @@ const semestersData = [
 export const ClassesPage = () => {
   return (
     <Page>
-      <div className="w-full flex flex-col sm:items-start items-center">
-        <h1 className="text-2xl">Classes</h1>
-      </div>
+      <Header title="Classes" />
       {semestersData.map(({ semester, courses }) => (
         <Item
           title={semester}

@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import Page from "./Page";
 import { Item } from "../components/Item";
+import { Header } from "../components/Header";
 
 const ProjectsPage: React.FC = () => {
   const [visibility, setVisibility] = useState(false);
 
   return (
     <Page>
-      <h1 className="text-2xl py-3 mb-2">Projects and Research</h1>
+      <Header title="Projects and Research" />
       <Item
         title="FIDO U2F Teensy Authenticator"
         description={
