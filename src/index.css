@@ -13,6 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --background-color: #fff;
+  --highlight-color: #eb4888;
+  --third-color: #e9bc3f;
+  --fourth-color: #24d05a;
+  --fifth-color: #10a2f5;
+  --subheader-color: #96979c;
+  --header-color: #000;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

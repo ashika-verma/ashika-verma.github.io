@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { requestRepoInfo } from "./api/github";
+import { generateRandomColor, setFunColors } from "./util";
 
 const emojiList = [`🤏`, `🍕`, `🌯`, `🥭`, `🍪`, `🌮`];
 
@@ -8,6 +9,14 @@ export const Footer = () => {
   const [diceRolls, setDiceRolls] = useState(0);
 
   function rollTheDice() {
+    const filledArray = [...new Array(5)].map(() => generateRandomColor());
+    setFunColors(
+      filledArray[0],
+      filledArray[1],
+      filledArray[2],
+      filledArray[3],
+      filledArray[4]
+    );
     if (diceRolls > 4) {
       const emoji = emojiList[Math.floor(Math.random() * emojiList.length)];
       document.body.style[
