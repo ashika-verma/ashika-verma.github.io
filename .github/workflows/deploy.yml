@@ -1,4 +1,4 @@
-name: Deploy
+name: Build and Deploy
 
 on:
   # Runs on pushes targeting the default branch
@@ -23,16 +23,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
