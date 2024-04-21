@@ -4,5 +4,5 @@
 
 #root {
   max-width: 1280px;
-  width: 100dvw;
+  margin: 0 auto;
 }

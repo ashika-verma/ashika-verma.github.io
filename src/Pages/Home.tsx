@@ -22,7 +22,10 @@ const HomePage: React.FC = () => {
       <Navbar />
       <div className="flex gap-2 sm:justify-normal justify-center">
         {["short", "long"].map((x) => (
-          <button className="bg-white w-22 text-emerald-400 hover:bg-slate-100 rounded-full px-7 py-[2px] text-xs border-emerald-400 border">
+          <button
+            key={x}
+            className="bg-white w-22 text-emerald-400 hover:bg-slate-100 rounded-full px-7 py-[2px] text-xs border-emerald-400 border"
+          >
             {x}
           </button>
         ))}

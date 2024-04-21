@@ -10,7 +10,7 @@ type PageProps = {
 const Page = ({ children, isTopNav = true }: PropsWithChildren<PageProps>) => {
   return (
     <div className="flex justify-center w-full">
-      <div className="space-y-3 max-w-[600px] py-16  w-full px-4">
+      <div className="space-y-3  py-16  sm:w-[640px] w-full px-4">
         {isTopNav && <Navbar />}
         {children}
         <Footer></Footer>

@@ -97,7 +97,9 @@ export const ClassesPage = () => {
           description={
             <ul className="list-disc">
               {courses.map((x) => (
-                <li className="ml-6">{x}</li>
+                <li key={x} className="ml-6">
+                  {x}
+                </li>
               ))}
             </ul>
           }
