@@ -1,0 +1,13 @@
+' Open notepad 
+Set WshShell = WScript.CreateObject("WScript.Shell")
+Dim counter
+counter = 100
+' hit tab enter repeatedly
+While counter > 0
+    WshShell.SendKeys "{TAB}"
+    WScript.Sleep 200 
+    WshShell.SendKeys "{ENTER}"
+    WScript.Sleep 200 
+    ' Comment out if you want to be mean
+    counter=counter-1
+Wend
