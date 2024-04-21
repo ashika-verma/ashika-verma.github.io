@@ -1,9 +1,9 @@
-name: Deploy
+name: Build and Deploy
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ["main", "test-bun"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,10 +29,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
