@@ -25,17 +25,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-
       - name: Install packages
-        run: bun install
+        run: bun install --frozen-lockfile
 
       - name: Build project
         run: bun run build
