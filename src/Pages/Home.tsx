@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
 
   return (
     <Page isTopNav={false}>
-      <div className="mb-6 grid gap-3 grid-cols-1 sm:grid-cols-2 place-items-center">
+      <div className="mb-6 grid gap-4 sm:gap-20 grid-cols-1 sm:grid-cols-2 place-items-center">
         <div className="w-60 flex items-center">
           <div className="text-center sm:text-start">
             <h1 className="text-2xl font-medium">Ashika Verma</h1>
