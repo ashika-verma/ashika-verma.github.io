@@ -1,6 +1,6 @@
 // HomePage.tsx
 import React, { ReactNode, useState } from "react";
-import Navbar from "../Navbar";
+import Page from "./Page";
 
 const ProjectItem = ({
   title,
@@ -11,8 +11,8 @@ const ProjectItem = ({
 }) => {
   return (
     <div className="mb-4">
-      <h2 className="text-2xl text-slate-500 mb-2">{title}</h2>
-      <p className="text-slate-950">{description}</p>
+      <h2 className="text-xl text-slate-500 mb-2">{title}</h2>
+      <p className="text-slate-950 text-xs">{description}</p>
     </div>
   );
 };
@@ -21,9 +21,8 @@ const ProjectsPage: React.FC = () => {
   const [visibility, setVisibility] = useState(false);
 
   return (
-    <div>
-      <Navbar />
-      <h1 className="text-3xl py-3 mb-2">Projects and Research</h1>
+    <Page isTopNav={true}>
+      <h1 className="text-2xl py-3 mb-2">Projects and Research</h1>
       <ProjectItem
         title="FIDO U2F Teensy Authenticator"
         description={
@@ -201,7 +200,7 @@ const ProjectsPage: React.FC = () => {
           </>
         }
       />
-    </div>
+    </Page>
   );
 };
 

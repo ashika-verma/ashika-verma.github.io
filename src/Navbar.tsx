@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Link } from "react-router-dom";
 import {
   HOME_URL,
@@ -18,10 +17,18 @@ const links = [
   { href: LINKEDIN_URL, text: "linkedin" },
 ];
 
-const Navbar: FC = () => {
+type Props = {
+  isTopNav?: boolean;
+};
+
+const Navbar = ({ isTopNav = false }: Props) => {
   return (
-    <nav className="flex">
-      <ul className="flex gap-x-3 gap-y-1 flex-wrap sm:justify-normal justify-center">
+    <nav className="flex w-full">
+      <ul
+        className={`${
+          isTopNav && "mt-8"
+        } w-full flex gap-x-3 gap-y-1 flex-wrap sm:justify-normal justify-center`}
+      >
         {links.map((link, index) => (
           <li className="text-xs underline" key={index}>
             {link.to ? (
