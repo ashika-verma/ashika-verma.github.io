@@ -3,15 +3,16 @@ import "./App.css";
 import HomePage from "./Pages/Home";
 import { CLASSES_URL, HOME_URL, PROJECTS_URL } from "./consts";
 import ProjectsPage from "./Pages/Projects";
+import { ClassesPage } from "./Pages/Classes";
 
 function App() {
   return (
-    <div className="selection:text-slate-900 selection:bg-rose-600">
+    <div className="selection:text-slate-900 selection:bg-rose-600 ">
       <Router>
         <Routes>
           <Route path={HOME_URL} index element={<HomePage />} />
           <Route path={PROJECTS_URL} element={<ProjectsPage />} />
-          <Route path={CLASSES_URL} element={<HomePage />} />
+          <Route path={CLASSES_URL} element={<ClassesPage />} />
         </Routes>
       </Router>
     </div>

@@ -1,29 +1,15 @@
 // HomePage.tsx
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import Page from "./Page";
-
-const ProjectItem = ({
-  title,
-  description,
-}: {
-  title: string;
-  description: string | ReactNode;
-}) => {
-  return (
-    <div className="mb-4">
-      <h2 className="text-xl text-slate-500 mb-2">{title}</h2>
-      <p className="text-slate-950 text-xs">{description}</p>
-    </div>
-  );
-};
+import { Item } from "../components/Item";
 
 const ProjectsPage: React.FC = () => {
   const [visibility, setVisibility] = useState(false);
 
   return (
-    <Page isTopNav={true}>
+    <Page>
       <h1 className="text-2xl py-3 mb-2">Projects and Research</h1>
-      <ProjectItem
+      <Item
         title="FIDO U2F Teensy Authenticator"
         description={
           <>
@@ -38,7 +24,7 @@ const ProjectsPage: React.FC = () => {
           </>
         }
       />
-      <ProjectItem
+      <Item
         title="Security of CAT-SOOP"
         description={
           <>
@@ -59,7 +45,7 @@ const ProjectsPage: React.FC = () => {
           </>
         }
       />
-      <ProjectItem
+      <Item
         title="Transformation Tolerance of Machine Based Face Recognition Systems"
         description={
           <span>
@@ -97,7 +83,7 @@ const ProjectsPage: React.FC = () => {
         }
       />
 
-      <ProjectItem
+      <Item
         title="Vocagen"
         description={
           <>
@@ -120,7 +106,7 @@ const ProjectsPage: React.FC = () => {
           </>
         }
       />
-      <ProjectItem
+      <Item
         title="XKCD New Tab"
         description={
           <>
@@ -138,7 +124,7 @@ const ProjectsPage: React.FC = () => {
         }
       />
 
-      <ProjectItem
+      <Item
         title="Routify"
         description={
           <>
@@ -163,7 +149,7 @@ const ProjectsPage: React.FC = () => {
         }
       />
 
-      <ProjectItem
+      <Item
         title="Club in One (2011)"
         description={
           <>
