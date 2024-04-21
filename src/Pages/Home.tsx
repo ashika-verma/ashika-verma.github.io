@@ -1,5 +1,5 @@
 // HomePage.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import Page from "./Page";
 
@@ -7,10 +7,24 @@ enum Blurb {
   short = "short",
   long = "long",
 }
+
 const options = Object.values(Blurb);
+const range = (n: number) => Array.from(Array(n).keys());
 
 const HomePage: React.FC = () => {
   const [blurb, setBlurb] = useState(Blurb.short);
+  const [faceCounter, setFaceCounter] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFaceCounter((prev) => (prev + 1) % 8);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const faces = range(8).map((x) => (
+    <img className="rounded-full" src={`./img/face${x + 1}.jpg`}></img>
+  ));
 
   return (
     <Page isTopNav={false}>
@@ -23,9 +37,7 @@ const HomePage: React.FC = () => {
             </h2>
           </div>
         </div>
-        <div className="w-60">
-          <img className="rounded-full" src="./img/face1.jpg"></img>
-        </div>
+        <div className="w-60">{faces[faceCounter]}</div>
       </div>
       <Navbar />
       <div className="flex gap-2 sm:justify-normal justify-center">
@@ -115,8 +127,7 @@ const HomePage: React.FC = () => {
             <a className="underline" href="mailto:ashikav2000@gmail.com">
               email me
             </a>{" "}
-            at
-            <code>ashikav2000@gmail.com</code>!
+            at <code>ashikav2000@gmail.com</code>!
           </p>
           <p>
             Alright, since you've read this far, have a joke: Why do programmers
