@@ -33,7 +33,7 @@ const HomePage: React.FC = () => {
           <div className="text-center sm:text-start">
             <h1 className="text-2xl font-medium">Ashika Verma</h1>
             <h2 className="text-lg text-slate-500">
-              [bun test] Software Developer in New York City
+              Software Developer in New York City
             </h2>
           </div>
         </div>
