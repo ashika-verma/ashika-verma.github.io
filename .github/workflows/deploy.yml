@@ -21,6 +21,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
 
+      - name: Install packages
+        run: bun install
+
       - name: Build project
         run: bun run build
 
