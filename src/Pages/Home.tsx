@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import Page from "./Page";
+import { range } from "../util";
 
 enum Blurb {
   short = "short",
@@ -9,7 +10,6 @@ enum Blurb {
 }
 
 const options = Object.values(Blurb);
-const range = (n: number) => Array.from(Array(n).keys());
 
 const HomePage: React.FC = () => {
   const [blurb, setBlurb] = useState(Blurb.short);
