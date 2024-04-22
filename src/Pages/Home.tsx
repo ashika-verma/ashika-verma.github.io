@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
         <div className="w-60 flex items-center">
           <div className="text-center sm:text-start">
             <h1 className="text-2xl font-medium">Ashika Verma</h1>
-            <h2 className="text-lg text-slate-500">
+            <h2 className="text-lg text-slate-500 dark:text-slate-400">
               Software Developer in New York City
             </h2>
           </div>
@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
             onClick={() => {
               setBlurb(x);
             }}
-            className="bg-white w-22 text-emerald-400 hover:bg-slate-100 rounded-full px-7 py-[2px] text-xs border-emerald-400 border"
+            className=" w-22 text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full px-7 py-[2px] text-xs border-emerald-400 border"
           >
             {x}
           </button>
