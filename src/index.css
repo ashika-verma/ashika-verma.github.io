@@ -13,6 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(20, 4, 23);
+  }
+}
+
 :root {
   --background-color: #fff;
   --highlight-color: #eb4888;
