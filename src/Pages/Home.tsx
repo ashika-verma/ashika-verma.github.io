@@ -10,6 +10,11 @@ enum Blurb {
 }
 
 const options = Object.values(Blurb);
+const numPhotos = 11;
+
+const faces = range(numPhotos).map((x) => (
+  <img className="rounded-full" src={`./img/face${x}.jpg`}></img>
+));
 
 const HomePage: React.FC = () => {
   const [blurb, setBlurb] = useState(Blurb.short);
@@ -17,14 +22,10 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFaceCounter((prev) => (prev + 1) % 8);
+      setFaceCounter((prev) => (prev + 1) % numPhotos);
     }, 2500);
     return () => clearInterval(interval);
   }, []);
-
-  const faces = range(8).map((x) => (
-    <img className="rounded-full" src={`./img/face${x + 1}.jpg`}></img>
-  ));
 
   return (
     <Page isTopNav={false}>
