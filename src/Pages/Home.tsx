@@ -13,7 +13,13 @@ const options = Object.values(Blurb);
 const numPhotos = 11;
 
 const faces = range(numPhotos).map((x) => (
-  <img className="rounded-full" src={`./img/face${x}.jpg`}></img>
+  <img
+    rel="preload"
+    height={240}
+    width={240}
+    className="rounded-full"
+    src={`./img/face${x}.webp`}
+  ></img>
 ));
 
 const HomePage: React.FC = () => {
