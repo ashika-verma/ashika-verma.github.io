@@ -64,7 +64,11 @@ const HomePage: React.FC = () => {
         <div>
           <p className="text-xs">
             Hi there! My name is Ashika and I'm a Software Engineer at{" "}
-            <a className="underline" href="https://www.citadelsecurities.com/">
+            <a
+              className="underline"
+              href="https://www.citadelsecurities.com/"
+              target="_blank"
+            >
               Citadel Securities
             </a>
             . I currently work on developing UIs for the firm's capital
@@ -78,7 +82,11 @@ const HomePage: React.FC = () => {
           <p>
             Well hello there! My name is Ashika and I am currently a software
             engineer at{" "}
-            <a className="underline" href="https://www.citadelsecurities.com/">
+            <a
+              target="_blank"
+              className="underline"
+              href="https://www.citadelsecurities.com/"
+            >
               Citadel Securities
             </a>
             . Currently I reside in the Core UI team, which primarily owns all
@@ -95,7 +103,7 @@ const HomePage: React.FC = () => {
           </p>
           <p>
             In the summer of 2021, I worked at{" "}
-            <a className="underline" href="https://kensho.com/">
+            <a target="_blank" className="underline" href="https://kensho.com/">
               Kensho
             </a>{" "}
             as a front-end engineer and learned a ton about design,
@@ -122,7 +130,11 @@ const HomePage: React.FC = () => {
             on the beginning phases of the Atlas project, which allows WordPress
             users to connect and host Headless WordPress websites on WP Engine.
             I mostly did back-end work developing a CLI tool for users, which is{" "}
-            <a className="underline" href="https://wpengine.com/atlas/">
+            <a
+              target="_blank"
+              className="underline"
+              href="https://wpengine.com/atlas/"
+            >
               featured
             </a>{" "}
             on the website! I also got to work with users and UX designers to

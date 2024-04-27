@@ -35,7 +35,10 @@ auto`;
   return (
     <div className="flex pt-3 justify-between text-[9px] border-slate-400 border-opacity-30 border-t">
       <p>
-        roll the dice <button onClick={rollTheDice}>🎲</button>
+        roll the dice{" "}
+        <button className="hover:animate-spin" onClick={rollTheDice}>
+          🎲
+        </button>
       </p>
       <p>last edited: {dateEdited}</p>
     </div>
