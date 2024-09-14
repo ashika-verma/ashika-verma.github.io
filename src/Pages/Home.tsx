@@ -71,10 +71,10 @@ const HomePage: React.FC = () => {
             >
               Citadel Securities
             </a>
-            . I currently work on developing UIs for the firm's capital
-            management and am learning waaay more finance than I ever imagined.
-            In my freetime, you can catch me jogging throughout NYC or obsessing
-            about compilers.
+            . I currently work on developing glorifed market data parsers
+            and am learning waaay more finance than I ever imagined.
+            In my freetime, you can catch me channeling my inner tech bro and rock climbing
+            or obsessing about C++ language features.
           </p>
         </div>
       ) : (
@@ -89,7 +89,7 @@ const HomePage: React.FC = () => {
             >
               Citadel Securities
             </a>
-            . Currently I reside in the Core UI team, which primarily owns all
+            . Currently I reside in the Real Time Trading Market data team, which primarily owns all
             of the tools that are shared amongst the traders. If you imagine the
             trader dashboard, I know exactly how to make that, and work on
             maintaining our dashboards as well as the UIs for capital management
